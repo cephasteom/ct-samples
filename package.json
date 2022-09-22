@@ -1,0 +1,11 @@
+{
+  "name": "ct-samples",
+  "version": "1.0.0",
+  "description": "A small project for hosting samples locally. Spins up a local server and creates a .json file of contents'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
