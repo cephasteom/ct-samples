@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "directory-tree": "^3.3.1",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "serve": "^14.0.1"
   }
 }

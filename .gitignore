@@ -1,3 +1,4 @@
 samples/
 node_modules/
+samples.json
 *.DS_Store
