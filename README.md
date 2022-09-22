@@ -11,5 +11,6 @@ yarn
 ## Usage
 * Drag samples, or directories of samples into `samples` folder.
 * run `yarn start` to compile json file of file tree and spin up local server
-* fetch `http://localhost:5000/samples.json` from a browser script to get list of url paths 
+* `serve` message should show address of local server
+* fetch `http://<address>/samples.json` from a browser script to get a list of url paths
 

@@ -4,7 +4,8 @@
   "description": "A small project for hosting samples locally. Spins up a local server and creates a .json file of contents'",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node toJSON.js && serve"
   },
   "author": "",
   "license": "ISC",
