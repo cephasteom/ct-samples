@@ -2,22 +2,33 @@ const dirTree = require("directory-tree");
 const fs = require('fs');
 const tree = dirTree("./samples");
 
-function compile(array) {
-    return array.map(({path, name, children}) => {
-        if (children) {
-            return compile(children);
-        } else {
-            const [_, ext] = name.split(".");
+function formatItem(name, url) {
+    const [, ext] = name.split(".");
+            const group = url.split("/")[url.split("/").length - 2];
             return ['wav', 'aif', 'mp3'].includes(ext) 
-                ? path 
+                ? { group, url }
                 : false;
-        }
-    }).filter(path => path)
 }
 
-const samples = JSON.stringify(compile(tree.children).flat(128));
+function compile(array) {
+    return array
+        .map(({path, name, children}) => children
+            ? compile(children)
+            : formatItem(name, path)
+        )
+        .filter(path => path)
+        .flat(128)
+}
 
-fs.writeFile('./samples.json', samples, 'utf8', (err) => {
+const result = compile(tree.children)
+    .reduce((obj, item) => ({
+        ...obj,
+        [item.group]: obj[item.group] ? [...obj[item.group], item.url] : [item.url]
+    }), {})
+
+const json = JSON.stringify(result);
+
+fs.writeFile('./samples/samples.json', json, 'utf8', (err) => {
     err
         ? console.log(`Error writing file: ${err}`)
         : console.log(`File is written successfully!`);
