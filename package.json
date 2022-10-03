@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node toJSON.js && serve samples/"
+    "start": "node toJSON.js && serve samples/ -l 5000"
   },
   "author": "",
   "license": "ISC",
