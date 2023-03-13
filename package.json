@@ -1,17 +1,19 @@
 {
   "name": "ct-samples",
   "version": "1.0.0",
-  "description": "A small project for hosting samples locally. Spins up a local server and creates a .json file of contents'",
+  "description": "A small project for hosting samples and data locally. Spins up a local server and creates a .json file of contents'",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node toJSON.js && serve -l 5000"
+    "start": "node samplesToJSON.js && serve -l 5000"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tonejs/midi": "^2.0.28",
     "directory-tree": "^3.3.1",
     "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "serve": "^14.0.1"
   }
 }
