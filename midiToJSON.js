@@ -5,7 +5,8 @@ const tree = dirTree("./midi");
 
 function formatName(name) {
     return name
-        .replace(/\s/g , '-')
+        .replace(/\s/g , '')
+        .replace('-', '')
         .replace(/\.mid/g, '')
         .toLowerCase()
 }
@@ -65,6 +66,6 @@ const json = JSON.stringify(data);
 
 fs.writeFile('./data.json', json, 'utf8', (err) => {
     err
-        ? console.log(`Error writing file: ${err}`)
-        : console.log(`File is written successfully!`);
+        ? console.log(`Error writing data file: ${err}`)
+        : console.log(`Data file is written successfully!`);
 });

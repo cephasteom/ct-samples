@@ -30,6 +30,6 @@ const json = JSON.stringify(result);
 
 fs.writeFile('./samples.json', json, 'utf8', (err) => {
     err
-        ? console.log(`Error writing file: ${err}`)
-        : console.log(`File is written successfully!`);
+        ? console.log(`Error writing samples file: ${err}`)
+        : console.log(`Samples file is written successfully!`);
 });
