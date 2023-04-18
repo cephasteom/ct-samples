@@ -1,3 +1,6 @@
+// Gets all of the midi files in the midi folder and converts them to JSON
+// The JSON is then used to generate the data.js file
+
 const { Midi } = require('@tonejs/midi')
 const dirTree = require("directory-tree");
 const fs = require('fs');
@@ -18,7 +21,7 @@ function parseMidi(files) {
             const midiData = fs.readFileSync(path)
             const midi = new Midi(midiData)
             const quant = 48 // 48 divisions per cycle - to match zen
-            const timeSig = midi.header.timeSignatures[0].timeSignature[0]
+            const timeSig = midi.header.timeSignatures[0]?.timeSignature[0] || 4
             const endTick = Math.floor(midi.tracks[0].endOfTrackTicks / 480 / timeSig) * timeSig * 480
             const notes = midi.tracks[0].notes
 
@@ -67,5 +70,5 @@ const json = JSON.stringify(data);
 fs.writeFile('./data.json', json, 'utf8', (err) => {
     err
         ? console.log(`Error writing data file: ${err}`)
-        : console.log(`Data file is written successfully!`);
+        : console.log(`Midi data was parsed successfully!`);
 });
