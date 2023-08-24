@@ -5,6 +5,7 @@ const { Midi } = require('@tonejs/midi')
 const dirTree = require("directory-tree");
 const fs = require('fs');
 const tree = dirTree("./midi");
+const q = 16 // you might need to change this if you change q within zen
 
 function formatName(name) {
     return name
@@ -20,7 +21,7 @@ function parseMidi(files) {
         .reduce((obj, {path, name}) => {
             const midiData = fs.readFileSync(path)
             const midi = new Midi(midiData)
-            const quant = 48 // 48 divisions per cycle - to match zen
+            const quant = q // q divisions per cycle - to match zen
             const timeSig = midi.header.timeSignatures[0]?.timeSignature[0] || 4
             const endTick = Math.floor(midi.tracks[0].endOfTrackTicks / 480 / timeSig) * timeSig * 480
             const notes = midi.tracks[0].notes
