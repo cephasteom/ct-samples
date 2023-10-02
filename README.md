@@ -9,14 +9,16 @@ npm install
 ```
 
 ## Usage
-* Drag folders of samples into `samples` folder. The file structure should look something like this:  
+* Drag folders of samples into `samples` folder. The file structure should look something like this:
+```
 ├── samples  
 │   ├── bd  
 │   │   ├── *.wav  
 │   ├── sd  
 │   │   ├── *.wav  
 │   ├── pads  
-│   │   ├── *.wav  
+│   │   ├── *.wav
+```
 N.B. browsers don't like .aif or .aiff files.
 * run `npm run start` to compile json file of file tree and spin up local server
 * `serve` message should show address of local server
