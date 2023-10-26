@@ -4,7 +4,7 @@ const tree = dirTree("./samples");
 
 function formatItem(name, url) {
     const [, ext] = name.split(".");
-            const group = url.split("/")[url.split("/").length - 2];
+            const group = url.split(/[\/\\]/)[url.split(/[\/\\]/).length - 2];
             return ['wav', 'aif', 'mp3'].includes(ext) 
                 ? { group, url: 'http://localhost:5000/' + url }
                 : false;
